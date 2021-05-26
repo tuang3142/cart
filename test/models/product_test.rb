@@ -12,7 +12,7 @@ class ProductTest < ActiveSupport::TestCase
 
   test "product price must be possitive" do
     product = Product.new(
-      title: "title",
+      title: "at least 10 chars title",
       description: "desc",
       image_url: "url.jpg"
     )
@@ -29,7 +29,7 @@ class ProductTest < ActiveSupport::TestCase
     assert product.valid?
   end
 
-  def new_product(image_url)
+  def new_product(image_url="image.png")
     Product.new(
       title: "My Book Title",
       description: "yyy",
@@ -52,10 +52,21 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "product title must be unique" do
-    product = new_product("image.png")
+    product = new_product
     product.title = products(:ruby).title
 
     assert product.invalid?
     assert_equal ["has already been taken"], product.errors[:title]
+  end
+
+  test "product title must be at least 10 characters" do
+    product = new_product
+
+    product.title = "012345678"
+    assert product.invalid?
+    assert_equal ["is too short (minimum is 10 characters)"], product.errors[:title]
+
+    product.title = "0123456789"
+    assert product.valid?
   end
 end
