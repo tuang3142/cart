@@ -50,4 +50,12 @@ class ProductTest < ActiveSupport::TestCase
       assert new_product(url).invalid?, "#{url} should be invalid"
     end
   end
+
+  test "product title must be unique" do
+    product = new_product("image.png")
+    product.title = products(:ruby).title
+
+    assert product.invalid?
+    assert_equal ["has already been taken"], product.errors[:title]
+  end
 end
