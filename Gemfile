@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rubocop', '~> 1.15'
 gem 'rubocop-rails', '~> 2.10.1'
+gem 'factory_bot_rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
