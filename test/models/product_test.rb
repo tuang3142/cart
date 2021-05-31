@@ -31,7 +31,8 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "image url" do
-    good_urls = %w[fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg http://a.b.c/x/y/z/fred.gif]
+    good_urls = %w[fred.gif fred.jpg fred.png fred.jpeg
+      FRED.JPG FRED.Jpg http://a.b.c/x/y/z/fred.gif]
     bad_urls = %w[fred.doc fred.gif/more fred.gif.more]
 
     good_urls.each do |url|
