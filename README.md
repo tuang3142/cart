@@ -1,24 +1,14 @@
-# README
+# What
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An e-commerce website. Basically it does everything Amazon can do and better.
 
-Things you may want to cover:
+# Why
 
-* Ruby version
+The world doesnt need another cart app, but that doesnt stop me from making one. This idea is to practice Rails and test-driven development.
 
-* System dependencies
+# Todo
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] CI, rubocop
+- [ ] Login with google
+- [ ] Set up instruction
+- [ ] Deployment
