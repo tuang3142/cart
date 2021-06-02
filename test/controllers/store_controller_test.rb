@@ -6,7 +6,7 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
     create_list(:product, product_count)
 
     get store_index_url
-    assert_response :success
+
     assert_response :success
     assert_select 'nav.side_nav a', minimum: 4
     assert_select 'main ul.catalog li', product_count
