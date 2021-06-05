@@ -1,0 +1,1 @@
+{ "*.rb": "bundle exec rubocop --auto-correct --force-exclusion" }
