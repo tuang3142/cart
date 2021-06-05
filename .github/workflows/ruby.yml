@@ -35,4 +35,3 @@ jobs:
       run: bundle exec rspec
     - name: Run mini test
       run: bin/rails test
-      run: bin/rails test
