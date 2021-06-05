@@ -44,7 +44,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should update product" do
     patch product_url(@product), params: {
       product: {
-        description: "new desc",
+        description: "new desc"
       }
     }
     assert_redirected_to product_url(@product)
