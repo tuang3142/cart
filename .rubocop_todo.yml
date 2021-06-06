@@ -543,7 +543,7 @@ Style/IfInsideElse:
     - 'features/step_definitions/trades/open_trade_steps.rb'
 
 # Offense count: 3
-Style/MethodMissingSuper:
+Style/MissingSuper:
   Exclude:
     - 'app/models/remitano_redis/frozen_funds.rb'
     - 'app/models/remitano_redis/usd_rates.rb'

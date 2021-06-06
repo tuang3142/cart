@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :product do
-    sequence(:title) { |n| "012346789#{n}" }
-    description  { "desc" }
+    sequence(:title) { |n| "Rails Tutorial 10#{n}" }
+    description { "From rookie to rock in no time" }
     sequence(:image_url) { "0.jpeg" }
-    price { 1 }
+    sequence(:price) { |n| n }
   end
 end
