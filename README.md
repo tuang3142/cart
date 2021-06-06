@@ -8,7 +8,6 @@ The world doesnt need another cart app, but that doesnt stop me from making one.
 
 # Todo
 
-- [ ] CI, rubocop
-- [ ] Login with google
+- [x] CI, rubocop
 - [ ] Set up instruction
 - [ ] Deployment
