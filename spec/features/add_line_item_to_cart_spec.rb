@@ -2,10 +2,10 @@
 
 require "rails_helper"
 
-describe "add line_item to cart", type: :feature do
+describe "add line_item to cart", type: :feature, chrome_headless: true do
   it "redirects" do
     ruby_book, docker_book = create_list(:product, 2)
-    visit store_index_url
+    visit store_index_path
     expect(page).to have_content ruby_book.title
 
     within("main ul.catalog li", text: ruby_book.title) do
@@ -19,8 +19,7 @@ describe "add line_item to cart", type: :feature do
     expect(page).to have_css("h2", text: "Your Pragmatic Cart")
     expect(page).to have_css("li", text: ruby_book.title)
 
-    # should be go back wtf
-    visit store_index_url
+    go_back
 
     within("main ul.catalog li", text: docker_book.title) do
       expect { click_on "Add to Cart" }
