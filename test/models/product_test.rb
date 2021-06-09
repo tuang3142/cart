@@ -46,14 +46,6 @@ class ProductTest < ActiveSupport::TestCase
     end
   end
 
-  test "product title must be unique" do
-    product1 = create(:product)
-    product2 = build(:product, title: product1.title)
-
-    assert product2.invalid?
-    assert_equal ["has already been taken"], product2.errors[:title]
-  end
-
   test "product title must be at least 10 characters" do
     product = build(:product)
 
