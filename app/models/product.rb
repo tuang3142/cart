@@ -11,12 +11,12 @@ class Product < ApplicationRecord
   }
 
   before_destroy :ensure_not_referenced_by_any_line_item
-  has_many :line_items
+  has_many :line_items # TODO: dependent
 
   private
 
   def ensure_not_referenced_by_any_line_item
-    return unless line_items.empty? # spooky. need test
+    return if line_items.empty?
 
     errors.add(:base, "is referenced by a LineItem")
     throw :abort
