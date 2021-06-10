@@ -2,6 +2,8 @@
 
 class LineItemsController < ApplicationController
   include CurrentCart
+  include Counter
+
   before_action :find_or_create_cart, only: [:create]
   before_action :set_line_item, only: %i[show edit update destroy]
 
@@ -31,6 +33,7 @@ class LineItemsController < ApplicationController
         format.html { redirect_to store_index_url }
         format.js { @current_item = @line_item }
         format.json { render :show, status: :created, location: @line_item }
+        reset_counter
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
@@ -44,6 +47,7 @@ class LineItemsController < ApplicationController
       if @line_item.update(line_item_params)
         format.html { redirect_to @line_item, notice: "Line item was successfully updated." }
         format.json { render :show, status: :ok, location: @line_item }
+        reset_counter
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
