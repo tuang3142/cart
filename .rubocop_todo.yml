@@ -22,6 +22,13 @@ Layout/EndAlignment:
     - 'features/step_definitions/fiat_wallet/fiat_wallet_steps.rb'
     - 'p2p-frontend/node_modules/rails-erb-loader/erb_transformer.rb'
 
+# Offense count: 3
+Lint/MissingSuper:
+  Exclude:
+    - 'app/models/remitano_redis/frozen_funds.rb'
+    - 'app/models/remitano_redis/usd_rates.rb'
+    - 'app/services/btcd_rpc.rb'
+
 # Offense count: 7
 Lint/AmbiguousBlockAssociation:
   Exclude:
@@ -541,13 +548,6 @@ Style/IfInsideElse:
     - 'engines/admin_web/lib/admin_web/admin/fiat_withdrawal_operation.rb'
     - 'engines/work_shift/lib/work_shift/admin/support_payslip.rb'
     - 'features/step_definitions/trades/open_trade_steps.rb'
-
-# Offense count: 3
-Style/MissingSuper:
-  Exclude:
-    - 'app/models/remitano_redis/frozen_funds.rb'
-    - 'app/models/remitano_redis/usd_rates.rb'
-    - 'app/services/btcd_rpc.rb'
 
 # Offense count: 4
 Style/MissingRespondToMissing:
