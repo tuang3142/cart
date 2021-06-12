@@ -4,15 +4,19 @@ require "rails_helper"
 
 RSpec.describe Product, type: :model do
   describe "#add_product" do
-    it "increases quantity of the line item" do
-      cart = create(:cart)
-      ruby_book = create(:product)
-      ruby_book_item = cart.line_items.create(product: ruby_book)
-      expect(ruby_book_item.quantity).to eq 1
+    context "line_item is not in cart" do
+      it "returns a new line_item" do
+        cart = create(:cart)
+        ruby_book = create(:product)
+        book_item = cart.add_product(ruby_book)
 
-      cart.add_product(ruby_book)
+        expect(book_item).to be_a(LineItem)
+        expect(book_item).to be_new_record
+      end
+    end
 
-      expect(ruby_book_item.reload.quantity).to eq 2
+    context "line_item is already cart" do
+      it "increases line_item quantity"
     end
   end
 end
