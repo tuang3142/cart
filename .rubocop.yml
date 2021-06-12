@@ -15,11 +15,12 @@ require:
   - rubocop-rails
 
 AllCops:
+  NewCops: enable
   Exclude:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
-    - 'db/scheme.rb'
+    - 'db/schema.rb'
 
   TargetRubyVersion: 2.5
 
