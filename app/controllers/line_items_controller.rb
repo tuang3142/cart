@@ -26,14 +26,13 @@ class LineItemsController < ApplicationController
   # POST /line_items or /line_items.json
   def create
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.new(product: product) # should bug, inspect here
+    @line_item = @cart.add_product(product)
 
     respond_to do |format|
       # TODO: just flash, no need to redirect
       if @line_item.save
         format.html do
-          redirect_to @line_item.cart,
-          notice: "Line item was successfully created."
+          redirect_to @line_item.cart, notice: "Line item was successfully created."
         end
         format.json { render :show, status: :created, location: @line_item }
       else

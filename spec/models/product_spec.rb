@@ -20,24 +20,4 @@ RSpec.describe Product, type: :model do
       expect(product.errors.messages).to eq({ product: ["is referenced by a LineItem"] })
     end
   end
-
-  describe "#add_product" do
-    context "a line item of the product is in the cart" do
-      it "increases quantity of the line item" do
-        cart = create(:cart)
-        ruby_book = create(:product)
-        ruby_book_item = cart.line_items.create(product: ruby_book)
-
-        # expect { cart.reload.add_product(ruby_book) }.to change { ruby_book_item.quantity }.by 1
-        expect(ruby_book_item.quantity).to eq 1
-        cart.reload.add_product(ruby_book)
-        expect(ruby_book_item.reload.quantity).to eq 2
-      end
-    end
-
-    context "a line item of the product is not yet created" do
-      it "builds a new line item" do
-      end
-    end
-  end
 end

@@ -10,5 +10,6 @@ class Cart < ApplicationRecord
     else
       current_item = line_items.new(product_id: product.id)
     end
+    current_item
   end
 end
