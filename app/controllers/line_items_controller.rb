@@ -29,11 +29,8 @@ class LineItemsController < ApplicationController
     @line_item = @cart.add_product(product)
 
     respond_to do |format|
-      # TODO: just flash, no need to redirect
       if @line_item.save
-        format.html do
-          redirect_to @line_item.cart, notice: "Line item was successfully created."
-        end
+        format.html { redirect_to @line_item.cart }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new, status: :unprocessable_entity }

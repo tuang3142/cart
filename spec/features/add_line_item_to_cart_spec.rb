@@ -15,9 +15,8 @@ describe "add line_item to cart", type: :feature, chrome_headless: true do
     end
 
     expect(page).to have_current_path cart_path(Cart.last)
-    expect(page).to have_css("aside#notice", text: "Line item was successfully created.")
-    expect(page).to have_css("h2", text: "Your Pragmatic Cart")
-    expect(page).to have_css("li", text: ruby_book.title)
+    expect(page).to have_css("h2", text: "Your Cart")
+    expect(page).to have_css("td", text: ruby_book.title)
 
     go_back
 
@@ -28,9 +27,8 @@ describe "add line_item to cart", type: :feature, chrome_headless: true do
     end
 
     expect(page).to have_current_path cart_path(Cart.last)
-    expect(page).to have_css("aside#notice", text: "Line item was successfully created.")
-    expect(page).to have_css("h2", text: "Your Pragmatic Cart")
-    expect(page).to have_css("li", text: ruby_book.title)
-    expect(page).to have_css("li", text: docker_book.title)
+    expect(page).to have_css("h2", text: "Your Cart")
+    expect(page).to have_css("td", text: ruby_book.title)
+    expect(page).to have_css("td", text: docker_book.title)
   end
 end
