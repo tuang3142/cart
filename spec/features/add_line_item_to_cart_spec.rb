@@ -11,10 +11,9 @@ describe "add line_item to cart", type: :feature, chrome_headless: true do
     within("main ul.catalog li", text: ruby_book.title) do
       expect { click_on "Add to Cart" }
         .to change(LineItem, :count).by(1)
-        .and change(Cart, :count).by(1)
     end
 
-    expect(page).to have_current_path cart_path(Cart.last)
+    expect(page).to have_current_path store_index_path
     expect(page).to have_css("h2", text: "Your Cart")
     expect(page).to have_css("td", text: ruby_book.title)
 
@@ -23,10 +22,9 @@ describe "add line_item to cart", type: :feature, chrome_headless: true do
     within("main ul.catalog li", text: docker_book.title) do
       expect { click_on "Add to Cart" }
         .to change(LineItem, :count).by(1)
-        .and change(Cart, :count).by(0)
     end
 
-    expect(page).to have_current_path cart_path(Cart.last)
+    expect(page).to have_current_path store_index_path
     expect(page).to have_css("h2", text: "Your Cart")
     expect(page).to have_css("td", text: ruby_book.title)
     expect(page).to have_css("td", text: docker_book.title)
