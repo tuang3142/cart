@@ -14,9 +14,5 @@ RSpec.describe Product, type: :model do
         expect(book_item).to be_new_record
       end
     end
-
-    context "line_item is already cart" do
-      it "increases line_item quantity"
-    end
   end
 end
