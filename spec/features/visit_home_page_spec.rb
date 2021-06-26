@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "visit products page", type: :feature do
+describe "visit products page" do
   it "shows products with detail" do
     product_count = 3
     book = create_list(:product, product_count).first

@@ -2,15 +2,13 @@
 
 require "rails_helper"
 
-describe "add line_item to cart", type: :feature, chrome_headless: true do
+describe "add line_item to cart" do
   it "changes cart line item and display the price" do
     ruby_book, docker_book = create_list(:product, 2)
     visit store_index_path
     expect(page).to have_content ruby_book.title
 
-    within("main ul.catalog li", text: ruby_book.title) do
-      click_on "Add to Cart"
-    end
+    add_to_cart(ruby_book)
 
     within("article") do
       expect(page).to have_css("h2", text: "Your Cart")
@@ -18,9 +16,7 @@ describe "add line_item to cart", type: :feature, chrome_headless: true do
       expect(page).to have_css("td.price", text: "$#{ruby_book.price}")
     end
 
-    within("main ul.catalog li", text: docker_book.title) do
-      click_on "Add to Cart"
-    end
+    add_to_cart(docker_book)
 
     within("article") do
       expect(page).to have_css("h2", text: "Your Cart")
