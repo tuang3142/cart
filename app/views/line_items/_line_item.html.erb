@@ -1,9 +1,10 @@
 <% if line_item == @current_item %>
-  <tr class="line-item-highlight">
+  <tr id=<%="line_item#{line_item.id}"%>class="line-item-highlight">
 <% else %>
-  <tr>
+  <tr id=<%="line_item#{line_item.id}"%>>
 <% end %>
     <td class="quantity"><%= line_item.quantity %></td>
-    <td><%= line_item.product.title %></td>
+    <td class="title"><%= line_item.product.title %></td>
     <td class="price"><%= number_to_currency(line_item.total_price) %></td>
+    <td><%= button_to "Remove", line_item, method: :delete, remote: true %></td>
   </tr>
