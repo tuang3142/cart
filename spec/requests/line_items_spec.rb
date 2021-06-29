@@ -10,7 +10,6 @@ RSpec.describe "/line_items", type: :request do
       post line_items_url, params: { product_id: ruby_book.id }, xhr: true
 
       expect(response).to have_http_status(:success)
-      expect(response.body).to match /<tr class=\\"line-item-highlight/
     end
   end
 end
