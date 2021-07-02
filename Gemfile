@@ -13,7 +13,7 @@ gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "rubocop"
 gem "rubocop-rails"
-gem "rubocop-rspec"
+gem 'rubocop-rspec', '~> 2.0.0.pre'
 gem "factory_bot_rails"
 
 group :development, :test do
