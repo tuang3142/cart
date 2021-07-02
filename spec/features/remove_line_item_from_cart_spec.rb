@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-feature "User removes a line item from cart", chrome_headless: true do
+feature "User removes a line item from cart" do
   scenario "successfully" do
     ruby_book, docker_book = create_list(:product, 2)
 
@@ -14,6 +14,6 @@ feature "User removes a line item from cart", chrome_headless: true do
     remove_from_cart(ruby_book)
     remove_from_cart(docker_book)
 
-    expect(page).not_to have_content("Your cart")
+    expect(page).not_to have_content("Your Cart")
   end
 end
