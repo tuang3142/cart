@@ -10,24 +10,34 @@ feature "add line_item to cart" do
 
     add_to_cart(ruby_book)
 
-    within("article") do
-      expect(page).to have_css("h2", text: "Your Cart")
+    within ".cart" do
       expect(page).to have_css("td", text: ruby_book.title)
       expect(page).to have_css("td.price", text: "$#{ruby_book.price}")
     end
 
     add_to_cart(docker_book)
 
-    within("article") do
-      expect(page).to have_css("h2", text: "Your Cart")
+    within ".cart" do
       expect(page).to have_css("td", text: docker_book.title)
       expect(page).to have_css("td.price", text: "$#{docker_book.price}")
     end
 
-    within("article") do
-      expect(page).to have_css("h2", text: "Your Cart")
-      expect(page).to have_css("th", text: "Total")
-      expect(page).to have_css("td.price", text: "$#{Cart.last.total_price}")
+    within ".cart" do
+      expect(page).to have_content "Total: $#{Cart.last.total_price}"
+    end
+  end
+
+  scenario "adding item by clicking the image" do
+    ruby_book = create(:product)
+
+    visit store_index_path
+
+    within ".catalog" do
+      click_on "Product #{ruby_book.id}"
+    end
+
+    within ".cart" do
+      expect(page).to have_content(ruby_book.title)
     end
   end
 end
