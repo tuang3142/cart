@@ -37,43 +37,6 @@ Layout/LineLength:
     - 'dev-seeds/**/*'
     - 'lib/streams/**/*'
 
-Metrics/BlockLength:
-  Enabled: false
-  Exclude:
-    - 'Rakefile'
-    - '**/*.rake'
-    - 'spec/**/*.rb'
-
-Metrics/ClassLength:
-  Enabled: false
-
-Metrics/MethodLength:
-  Enabled: false
-
-Metrics/ModuleLength:
-  Enabled: false
-  Exclude:
-    - 'spec/**/*.rb'
-
-Metrics/ParameterLists:
-  Exclude:
-    - 'features/**/*'
-    - 'spec/**/*.rb'
-
-RSpec/DescribeMethod:
-  Exclude:
-    - 'spec/api/**/*.rb'
-
-RSpec/MultipleDescribes:
-  Exclude:
-    - 'spec/api/**/*.rb'
-
-RSpec/PredicateMatcher:
-  EnforcedStyle: inflected
-
-RSpec/MessageSpies:
-  Enabled: false
-
 Style/Documentation:
   Enabled: false
 
@@ -81,13 +44,6 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes
   Exclude:
     - 'Gemfile'
-
-Style/NumericPredicate:
-  Enabled: false
-
-Style/RedundantSelf:
-  Exclude:
-    - 'app/models/setting.rb'
 
 Layout/FirstParameterIndentation:
   Enabled: false
@@ -103,9 +59,6 @@ Layout/ClosingParenthesisIndentation:
 
 Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
-
-Lint/AmbiguousBlockAssociation:
-  Enabled: false
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
@@ -193,4 +146,7 @@ Style/RedundantFetchBlock:
 Style/RedundantRegexpCharacterClass:
   Enabled: false
 Style/RedundantRegexpEscape:
+  Enabled: false
+
+RSpec/Capybara/FeatureMethods:
   Enabled: false

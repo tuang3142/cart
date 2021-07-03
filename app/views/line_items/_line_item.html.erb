@@ -3,7 +3,33 @@
 <% else %>
   <tr id=<%="line_item#{line_item.id}"%>>
 <% end %>
-    <td class="quantity"><%= line_item.quantity %></td>
+    <td class="quantity">
+      <p>
+      <span>
+        <%=
+          link_to "+",
+          line_item_path(
+            line_item,
+            { line_item: { quantity: line_item.quantity + 1 } }
+          ),
+          method: :patch,
+          remote: true
+        %>
+      </span>
+        <%= line_item.quantity %>
+      <span>
+        <%=
+          link_to "-",
+          line_item_path(
+            line_item,
+            { line_item: { quantity: line_item.quantity - 1 } }
+          ),
+          method: :patch,
+          remote: true
+        %>
+      </span>
+      </p>
+    </td>
     <td class="title"><%= line_item.product.title %></td>
     <td class="price"><%= number_to_currency(line_item.total_price) %></td>
     <td><%= button_to "Remove", line_item, method: :delete, remote: true %></td>
