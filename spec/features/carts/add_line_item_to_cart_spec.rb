@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-describe "add line_item to cart" do
-  it "changes cart line item and display the price" do
+feature "add line_item to cart" do
+  scenario "changes cart line item and display the price" do
     ruby_book, docker_book = create_list(:product, 2)
     visit store_index_path
     expect(page).to have_content ruby_book.title
