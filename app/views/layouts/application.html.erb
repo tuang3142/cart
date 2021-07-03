@@ -17,9 +17,9 @@
     </header>
     <section class="content">
       <nav class="side_nav">
-        <% if @cart %>
+        <% if @current_cart %>
           <div id="cart" class="cart">
-            <%= render_if @cart && @cart.line_items.any?, @cart %>
+            <%= render_if @current_cart && @current_cart.line_items.any?, @current_cart %>
           </div>
         <% end %>
         <ul>
