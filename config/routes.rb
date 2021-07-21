@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   resources :products
-  resources :orders, only: %i[new]
+  resources :orders
 end

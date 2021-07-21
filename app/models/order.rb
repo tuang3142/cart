@@ -6,4 +6,6 @@ class Order < ApplicationRecord
     "Credit Card": 1,
     "Bank Transfer": 2
   }
+
+  validates :name, :address, :email, presence: true
 end

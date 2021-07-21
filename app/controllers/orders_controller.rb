@@ -5,7 +5,9 @@ class OrdersController < ApplicationController
   before_action :find_or_create_cart, only: %i[new]
   before_action :ensure_cart_isnt_empty, only: :new
 
-  def new; end
+  def new
+    @order = Order.new
+  end
 
   private
 

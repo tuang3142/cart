@@ -7,9 +7,9 @@ RSpec.describe "/orders", type: :request do
     context "there is item in cart" do
       it "is successful" do
         ruby_book = create(:product)
-
         post line_items_url,
           params: { product_id: ruby_book.id }, xhr: true
+
         get new_order_url
 
         expect(response).to be_successful
