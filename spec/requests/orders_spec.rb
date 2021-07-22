@@ -24,4 +24,22 @@ RSpec.describe "/orders", type: :request do
       end
     end
   end
+
+  describe "POST /create" do
+    context "successful" do
+      it "creates an order" do
+        # # cart = create(:cart)
+        # # ruby_book = create(:line_item, cart: cart)
+
+        # expect {
+        #   post orders_url, params: { order: build(:order) }
+        # }.to change(Order, :count).by(1)
+      end
+    end
+
+    context "errors" do
+      it "displays error" do
+      end
+    end
+  end
 end
