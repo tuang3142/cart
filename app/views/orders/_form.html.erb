@@ -27,11 +27,7 @@
     <%= form.email_field :email, size: 40 %>
   </div>
 
-  <div class="field">
-    <%= form.label :payment_method %>
-    <%= form.select :payment_method, Order.payment_methods.keys,
-                  prompt: 'Select a payment method' %>
-  </div>
+  <div id='payment-method-component'></div>
 
   <div class="actions">
     <%= form.submit 'Place Order' %>

@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class Order < ApplicationRecord
+  # store this somewhere else
   enum payment_method: {
-    "Cash On Delivery": 0,
-    "Credit Card": 1,
-    "Bank Transfer": 2
+    "Check": 0,
+    "Credit card": 1,
+    "Purchasr order": 2
   }
 
   has_many :line_items, dependent: :destroy
