@@ -4,7 +4,7 @@ require "rails_helper"
 
 feature "user checks out" do
   context "cart has items" do
-    scenario "sucessfully" do
+    scenario "sucessfully", :browser_headless do
       ruby_book = create(:product)
 
       visit store_index_path
@@ -15,6 +15,7 @@ feature "user checks out" do
       expect(page).not_to have_css("input.checkout")
 
       fill_in_checkout_form
+
       expect { click_on "Place Order" }
         .to change(Order, :count).by 1
     end

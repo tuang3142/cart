@@ -28,9 +28,9 @@ class PaymentMethodSelector extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <div className="field">
-          <label htmlFor="order_payment_method">Payment Method</label>
+          <label htmlFor="order_payment_method">Payment method</label>
           <select
             id="order_payment_method"
             name="order[payment_method]"
@@ -43,7 +43,7 @@ class PaymentMethodSelector extends React.Component {
           </select>
         </div>
         <PaymentForm paymentMethod={this.state.selectedPaymentMethod} />
-      </div>
+      </>
     );
   }
 }

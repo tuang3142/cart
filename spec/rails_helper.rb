@@ -36,14 +36,14 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  config.around(:each, :chrome) do |example|
-    Capybara.current_driver = :selenium_chrome
+  config.around(:each, :browser) do |example|
+    Capybara.current_driver = :selenium
     example.call
     Capybara.use_default_driver
   end
 
-  config.around(:each, :chrome_headless) do |example|
-    Capybara.current_driver = :selenium_chrome_headless
+  config.around(:each, :browser_headless) do |example|
+    Capybara.current_driver = :selenium_headless
     example.call
     Capybara.use_default_driver
   end
