@@ -1,4 +1,5 @@
 class OrderMailer < ApplicationMailer
+  # todo: should there be a default config?
   default from: 'Sam Ruby <depot@example.com>'
 
   def received(order)
@@ -7,9 +8,9 @@ class OrderMailer < ApplicationMailer
     mail to: order.email, subject: 'Pragmatic Store Order Confirmation'
   end
 
-  def shipped
-    @greeting = "Hi"
+  def shipped(order)
+    @order = order
 
-    mail to: "to@example.org"
+    mail to: order.email, subject: 'Pragmatic Store Order Shipped'
   end
 end
