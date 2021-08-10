@@ -22,8 +22,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        Cart.destroy(session[:cart_id])
-        session[:cart_id] = nil
+        destroy_cart
+        ChargeOrderJob.perform_later(@order, payment_method_params.to_h)
         OrderMailer.received(@order).deliver_later
         format.html { redirect_to store_index_url, notice:
           'Thank you for your order.' }
@@ -75,7 +75,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # todo: make sure this is used
   def payment_method_params
     if order_params[:payment_method] == "Credit card"
       params.require(:order).permit(:credit_card_number, :expiration_date)
@@ -86,5 +85,10 @@ class OrdersController < ApplicationController
     else
       {}
     end
+  end
+
+  def destroy_cart
+    Cart.destroy(session[:cart_id])
+    session[:cart_id] = nil
   end
 end
