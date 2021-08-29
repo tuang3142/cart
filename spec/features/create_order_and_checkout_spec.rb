@@ -3,8 +3,15 @@
 require "rails_helper"
 
 feature "user checks out" do
+  include ActiveJob::TestHelper
+
+  after do
+    clear_enqueued_jobs
+  end
+
   context "cart has items" do
     scenario "sucessfully", :browser_headless do
+
       ruby_book = create(:product)
 
       visit store_index_path
